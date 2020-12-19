@@ -14,5 +14,5 @@ The provided pattern in lazy format.
 }
 \description{
 Returns the provided pattern in lazy format. Repetition
-operators are replaced by their lazy versions: ??, +?, *?, {n,}?, {n,m}?.
+operators are replaced by their lazy versions: ??, +?, *?, \{n,\}?, \{n,m\}?.
 }

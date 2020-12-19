@@ -14,5 +14,5 @@ The provided pattern in greedy format.
 }
 \description{
 Returns the provided pattern in greedy format. The ? is removed
-in all instances of ??, +?, *?, {n,}?, {n,m}?.
+in all instances of ??, +?, *?, \{n,\}?, \{n,m\}?.
 }

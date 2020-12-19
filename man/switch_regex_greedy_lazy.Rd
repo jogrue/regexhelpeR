@@ -17,6 +17,6 @@ greedy operators switched to lazy.
 Lazy repetition operators are replaced by greedy ones and vice
 versa.
 
-On a minor note: Internally the pattern "\emph{LAZZZY170605}" is used for
+On a minor note: Internally the pattern "\_LAAAAAZZZY170605\_" is used for
 replacements. Thus, provided patterns should not include this pattern.
 }

@@ -18,7 +18,6 @@ devtools::install_github("jogrue/regexhelpeR")
 ```
 
 
-
 ## Usage
 
 ```R
@@ -52,3 +51,14 @@ pat_greedy
 pat_optim
 # [1] "\\bpolitic"          "\\bboy(s)?\\b"       "\\bpart(y|i)(.+)\\b" "mixed"  
 ```
+
+
+## Cite
+
+Gründl, J. (2020). Populist ideas on social media: A dictionary-based 
+measurement of populist communication. _New Media & Society_. Advance online 
+publication. 
+[https://doi.org/10.1177/1461444820976970](https://doi.org/10.1177/1461444820976970)
+
+Gründl, J. (2020). _regexhelpeR_ (R package). 
+[https://github.com/jogrue/regexhelpeR](https://github.com/jogrue/regexhelpeR)

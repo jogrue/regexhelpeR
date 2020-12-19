@@ -14,9 +14,9 @@
 
 
 #' Make regex patterns greedy
-#' 
+#'
 #' @description Returns the provided pattern in greedy format. The ? is removed
-#' in all instances of ??, +?, *?, {n,}?, {n,m}?.
+#' in all instances of ??, +?, *?, \{n,\}?, \{n,m\}?.
 #'
 #' @param pattern A regex pattern in lazy format
 #'
@@ -30,9 +30,9 @@ make_all_regex_greedy <- function(pattern) {
 
 
 #' Make regex patterns lazy
-#' 
+#'
 #' @description Returns the provided pattern in lazy format. Repetition
-#' operators are replaced by their lazy versions: ??, +?, *?, {n,}?, {n,m}?.
+#' operators are replaced by their lazy versions: ??, +?, *?, \{n,\}?, \{n,m\}?.
 #'
 #' @param pattern A regex pattern in greedy format
 #'
@@ -52,34 +52,37 @@ make_all_regex_lazy <- function(pattern) {
 
 
 #' Switch between lazy and greedy in regex patterns
-#' 
+#'
+#' @noMd
 #' @description Lazy repetition operators are replaced by greedy ones and vice
 #' versa.
-#' 
-#' On a minor note: Internally the pattern "_LAZZZY170605_" is used for
+#'
+#' On a minor note: Internally the pattern "\_LAAAAAZZZY170605\_" is used for
 #' replacements. Thus, provided patterns should not include this pattern.
 #'
 #' @param pattern A regex pattern.
 #'
 #' @return The provided pattern with lazy operators switched to greedy and
 #' greedy operators switched to lazy.
-#' 
+#'
 #' @export
 switch_regex_greedy_lazy <- function(pattern) {
-  # replace the lazy expressions' ? with unique pattern _LAZZZY170605_
-  pattern <- stringr::str_replace_all(pattern,
-                                      "((?<!\\\\)[\\?\\*\\+\\}])(\\?)",
-                                      "\\1_LAZZZY170605_")
+  # replace the lazy expressions' ? with unique pattern _LAAAAAZZZY170605_
+  pattern <- stringr::str_replace_all(
+    pattern,
+    "((?<!\\\\)[\\?\\*\\+\\}])(\\?)",
+    "\\1_LAAAAAZZZY170605_"
+  )
   # replace the greedy expressions with lazy version
   pattern <- stringr::str_replace_all(
     pattern,
-    "((?<!\\\\)[\\?\\*\\+\\}])(?!_LAZZZY170605_)",
+    "((?<!\\\\)[\\?\\*\\+\\}])(?!_LAAAAAZZZY170605_)",
     "\\1?"
   )
   # remove the lazy marker from previously lazy expressions (making them greedy)
   pattern <- stringr::str_replace_all(string = pattern,
                                       pattern = stringr::fixed(
-                                        "_LAZZZY170605_",
+                                        "_LAAAAAZZZY170605_",
                                         ignore_case = FALSE
                                       ),
                                       replacement = "")
